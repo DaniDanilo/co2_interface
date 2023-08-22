@@ -1,0 +1,6 @@
+gradio==3.40.1
+numpy==1.23.2
+pandas==1.4.3
+huggingface_hub
+sentence_transformers
+openpyxl
