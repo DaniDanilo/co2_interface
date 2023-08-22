@@ -23,7 +23,7 @@ def match(input, amount, country_code):
     input_embedding=model.encode(input)
 
     ref_db = np.load('outputs/ref_db.npy')
-    categories=pd.read_excel('merged_approach_paraphrase.xlsx')
+    categories=pd.read_excel('outputs/merged_approach_manual.xlsx')
 
     outputs= []
     cosine_scores = util.pytorch_cos_sim(input_embedding, ref_db)[0]
