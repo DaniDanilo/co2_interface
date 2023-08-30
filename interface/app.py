@@ -2,14 +2,14 @@ import gradio as gr
 from input_processing import match
 
 demo = gr.Interface(fn=match,
-                    inputs=[gr.Textbox(label='Food item', placeholder='Be as specific as possible'),
-                            gr.Number(label='Amount of food in kilograms'),
-                            gr.Textbox(label='Country Code', placeholder='Please only write a country code, not a name')
+                    inputs=gr.Dataframe(
+                            headers=['Food item', 'Amount of Food (kg)', 'Country Code'],
+                            datatype=['str', 'number','str'],
+                            label='Enter the products to calculate CO2 for:'
+                         ),
+                    outputs=[
+                             gr.outputs.Textbox(label="Total Carbon Footprint (kg CO2-eq/kg)"),
+                             gr.outputs.Textbox(label="Biggest Contributor for Emissions")
                         ],
-                    
-                    outputs=[gr.outputs.Textbox(label="Product Type"),
-                             gr.outputs.Textbox(label="Carbon Footprint (kg CO2-eq/kg)"),
-                             gr.outputs.Textbox(label="Country Code")
-                        ],
-                    title="Find the carbon footprint of your desired food item")
+                    title="Find the carbon footprint of your desired food items")
 demo.launch()  
