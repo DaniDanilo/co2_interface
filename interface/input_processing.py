@@ -21,8 +21,13 @@ def match(input):
     ref_db = np.load('ref_db.npy')
     categories = pd.read_excel('merged_approach_paraphrase.xlsx')
 
+<<<<<<< HEAD
     outputs = []
     model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
+=======
+    ref_db = np.load('outputs/ref_db.npy')
+    categories=pd.read_excel('outputs/merged_approach_manual.xlsx')
+>>>>>>> c3f5960f36b4e7471522dfd812ab4fb8982d291b
 
     for product, cc, amount in zip(products, country_code, amount):  # Loop through both products and country codes
         product = clean_text(product)

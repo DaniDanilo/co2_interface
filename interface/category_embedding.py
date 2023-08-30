@@ -5,7 +5,7 @@ import numpy as np
 
 #loading data (from macthed Codex and Ex to Ei) to embed and
 # not need to do it each time for matching
-df1=pd.read_excel('outputs/merged_approach_All.xlsx')
+df1=pd.read_excel('outputs/merged_approach_manual.xlsx')
 categories=df1['Codex Merged Input'].tolist()
 
 #creating model
