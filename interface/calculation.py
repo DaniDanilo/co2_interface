@@ -52,6 +52,6 @@ def calculate_emissions(emissions_source_name, emissions_source, matching_output
     # Getting the needed outputs to be displayed in interface
     carbon_footprint = outputs_df['Total CO2 Emissions'].sum()
     max_emission_product = outputs_df.loc[outputs_df['Total CO2 Emissions'].idxmax(), 'Input'] 
-    matchings = outputs_df ["Matched Category"].astype(str)
+    matchings = "\n".join(outputs_df["Matched Category"].astype(str))
 
     return carbon_footprint, max_emission_product, matchings
