@@ -21,4 +21,4 @@ def run_interface(merged_categories):
                               gr.outputs.Textbox(label="Biggest Contributor for Emissions")
                          ],
                          title="Find the carbon footprint of your desired food items")
-     demo.launch(share=True)  
+     demo.launch()  
