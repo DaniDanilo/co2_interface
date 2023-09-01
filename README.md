@@ -6,10 +6,26 @@ sdk_version: 3.40.1
 ---
 # CO2_matching_model
 
-### Folders:
+### Starting Point:
 
-1. google_forms: the solution for loading user input from google forms output xlsx file into the model. Gives matching to a codex category & respective ex_ei row with CO2 emissions calculated for the weight of the product entered.
-2. interface: interactive webpage hosted on hugginface spaces that allows endusers directly enter the product of interest into the input field and obtain the CO2 emission values on the webpage in real time with no excel files involved from users' side.
+1. [config](config.py) : configure the parameters for the interface to run, this will be used throughout the rest of files.
+   ---
+   sentence_transformer_model: what model from sentence-transformers library to be used
+   emissions_source_name: either use "manual", "exei" or "sueatable" in order to choose which data base of food related emissions to use.
+   emissions_source: the path for obtaining the food related emissions data base
+   columnname: the column that contains the categories to be embedded for matching with input
+   reference_db: path for the file obtained when embedding categories from food related emissions file
+   result_column: column that has the main item from emissions file (and not the merged version)
+   left_on: column name from the outputs_df to be merged with emissions dile *the columns that both data frames have in common
+   right_on: column name from the emissions file to be merged with outputs_df *the columns that both data frames have in common
+   excel_ouput_path: path where the results from matching and CO2 calculations will be stored
+   ---
+   
+3. [main](main.py) : main file to run interface and all other files needed.
+   
+### Folders:
+1. interface: interactive webpage hosted on hugginface spaces that allows endusers directly enter the product of interest into the input field and obtain the CO2 emission values on the webpage in real time with no excel files involved from users' side.
+2. interface_outputs: excel files with time stamp with the matching information of the interface inputs. Can be used to check for discrepancies of matching or simply as a control of how many times the interface has been used
 
 ### Files in google_forms:
 
