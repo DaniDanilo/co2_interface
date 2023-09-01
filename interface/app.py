@@ -18,7 +18,8 @@ def run_interface(merged_categories):
                               ),
                          outputs=[
                               gr.outputs.Textbox(label="Total Carbon Footprint (kg CO2-eq/kg)"),
-                              gr.outputs.Textbox(label="Biggest Contributor for Emissions")
+                              gr.outputs.Textbox(label="Biggest Contributor for Emissions"),
+                              gr.outputs.Textbox(label="Matched Categories")
                          ],
                          title="Find the carbon footprint of your desired food items")
      demo.launch()  
