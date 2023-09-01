@@ -25,7 +25,6 @@ sdk_version: 3.40.1
    -left_on: column name from the outputs_df to be merged with emissions file
    
    -right_on: column name from the emissions file to be merged with outputs_df
-   
    		*the columns that both data frames have in common
    
    -excel_ouput_path: path where the results from matching and CO2 calculations will be stored
@@ -41,10 +40,11 @@ sdk_version: 3.40.1
 1. [app.py](interface/app.py)
 	Create a web page that contains an interactive form using Gradio plugin. Hosted via hugginface spaces at[https://huggingface.co/spaces/TeamCarrot/CO2_calculator](https://huggingface.co/spaces/TeamCarrot/CO2_calculator)
 
-The web app is up and available to the users 24/7 due to cloud hosting. The interface callse the "match" python function from the input-processing.py file on click of the submit button. The functionality can also be accesed through API calls, which may be useful for the other web applications we are building that use carbon emissions data.
+The web app is up and available to the users 24/7 due to cloud hosting. The interface calls the pipeline from the function "run_interface" when clicking of the submit button. The functionality can also be accesed through API calls, which may be useful for the other web applications we are building that use carbon emissions data.
 
-2. [input_processing.py](interface/input_processing.py) utilizes the numerical embeddings created by category_embedding.py(Run it first before anything else!), so that we do not embed the same file every time a user submits a request. This way, we only embed the users input text and then run against the per made embeddings to find a match(similar to the google forms approach), then return the emissions values to the interface
-3. [category_embedding.py](interface/category_embedding.py) creates numerical embeddings for the Codex+Matched ecoinvent-exiobase merged file(combination of product title, L1-L6, Product Type name and Product Hiot type name) and exports it for later use in the interface as ref_db.npy
+2. [input_processing.py](interface/input_processing.py) utilizes the numerical embeddings created by category_embedding.py(Run it first before anything else!), so that we do not embed the same file every time a user submits a request. This way, we only embed the users input text and then run against the per made embeddings to find a match, then return the emissions values to the interface
+3. [category_embedding.py](interface/category_embedding.py) creates numerical embeddings for the base emissions file chosen and exports it for later use in the interface as ref_db.npy
+4. [calculation](interface/calculation.py) calculates the total emissions for all products and gives the interface the needed outputs of total emissions, the products that emmits the most CO2, as well as a list of the matched categories from our data base.
 
 ### Files:
 
