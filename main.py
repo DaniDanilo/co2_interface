@@ -1,5 +1,5 @@
 from interface.generate_matching import match_codex_and_exei
-from process_sueatable import prep_sueatable
+from interface.process_sueatable import prep_sueatable
 from interface.category_embedding import create_reference_db
 from interface.app import run_interface
 from config import sentence_transformers_model, emissions_source_name, columnname, reference_db
