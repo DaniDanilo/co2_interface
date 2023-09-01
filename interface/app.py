@@ -6,9 +6,9 @@ from config import reference_db, result_column, sentence_transformers_model, emi
 def run_interface(merged_categories):
      def pipeline(input):
           matching_outputs =  clean_and_match(result_column, input, reference_db, merged_categories, sentence_transformers_model)
-          carbon_footprint, max_emission_product = calculate_emissions(emissions_source_name,
+          carbon_footprint, max_emission_product, matchings = calculate_emissions(emissions_source_name,
                                                                       emissions_source, matching_outputs, left_on, right_on, excel_output_path)
-          return carbon_footprint, max_emission_product
+          return carbon_footprint, max_emission_product, matchings
 
      demo = gr.Interface(fn=pipeline,
                          inputs=gr.Dataframe(
