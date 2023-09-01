@@ -1,3 +1,9 @@
+---
+title: CO2_calculator
+app_file: main.py
+sdk: gradio
+sdk_version: 3.40.1
+---
 # CO2_matching_model
 
 ### Folders:
