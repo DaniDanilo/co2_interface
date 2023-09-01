@@ -7,3 +7,4 @@ reference_db = "outputs/ref_db.npy"
 result_column = "Food commodity ITEM"
 left_on = ["Matched Category"]
 right_on = ["Food commodity ITEM"]
+excel_output_path = "interface_outputs/matched_outputs"

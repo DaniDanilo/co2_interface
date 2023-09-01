@@ -10,7 +10,7 @@ def prep_sueatable(sueatable_filename, output_file):
         text = re.sub(r'[^a-zA-Z0-9\s]', '', text)
         return text
 
-    #Combining L1 through L6 rows from codex
+    #Combining rows food group, name, typology and description allowing for a more suitable match later
     df['Merged'] = df.apply(lambda row: f"{row['FOOD COMMODITY GROUP']} {row['Food commodity ITEM']} {row['Typology']} {row['Description']}", axis=1)
     #Cleaning text and making merged column into a list
     df['Merged']=df['Merged'].apply(clean_text)
